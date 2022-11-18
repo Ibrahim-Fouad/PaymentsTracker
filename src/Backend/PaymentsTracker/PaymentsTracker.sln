@@ -5,6 +5,8 @@ VisualStudioVersion = 17.4.33110.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaymentsTracker.API", "PaymentsTracker.API\PaymentsTracker.API.csproj", "{43789B32-D3B3-4941-B9AC-EC799415518E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaymentsTracker.Models", "PaymentsTracker.Models\PaymentsTracker.Models.csproj", "{43750699-110F-4B44-A20A-6BFA88EA6254}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{43789B32-D3B3-4941-B9AC-EC799415518E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{43789B32-D3B3-4941-B9AC-EC799415518E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{43789B32-D3B3-4941-B9AC-EC799415518E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43750699-110F-4B44-A20A-6BFA88EA6254}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43750699-110F-4B44-A20A-6BFA88EA6254}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43750699-110F-4B44-A20A-6BFA88EA6254}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43750699-110F-4B44-A20A-6BFA88EA6254}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
