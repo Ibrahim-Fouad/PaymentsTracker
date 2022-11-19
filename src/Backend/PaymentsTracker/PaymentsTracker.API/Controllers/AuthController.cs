@@ -1,13 +1,30 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using PaymentsTracker.API.Extensions;
+using PaymentsTracker.Common.DTOs.Auth;
+using PaymentsTracker.Services.Interfaces;
 
 namespace PaymentsTracker.API.Controllers;
 
+[AllowAnonymous]
 public class AuthController : BaseController
 {
-    // GET
-    [HttpGet]
-    public bool CheckAuth()
+    private readonly IAuthService _authService;
+
+    public AuthController(IAuthService authService)
     {
-        return true;
+        _authService = authService;
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> LoginAsync(LoginDto loginDto, CancellationToken token)
+    {
+        return await _authService.LoginAsync(loginDto, token).ToActionResult();
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> RegisterAsync(RegisterDto registerDto, CancellationToken token)
+    {
+        return await _authService.RegisterAsync(registerDto, token).ToActionResult();
     }
 }

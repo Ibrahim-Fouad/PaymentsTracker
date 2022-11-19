@@ -11,7 +11,7 @@ using PaymentsTracker.Models.Data;
 namespace PaymentsTracker.Models.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20221118213208_AddUsersTable")]
+    [Migration("20221119203709_AddUsersTable")]
     partial class AddUsersTable
     {
         /// <inheritdoc />
@@ -35,6 +35,11 @@ namespace PaymentsTracker.Models.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("FullName")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("NormalizedEmail")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("TEXT");

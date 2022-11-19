@@ -5,6 +5,6 @@ namespace PaymentsTracker.Services.Interfaces;
 
 public interface IAuthService
 {
-    Task<OperationResult<UserLoginDto>> LoginAsync(LoginDto loginDto);
-    Task<OperationResult<UserLoginDto>> RegisterAsync(RegisterDto registerDto);
+    Task<OperationResult<UserLoginDto>> LoginAsync(LoginDto loginDto, CancellationToken cancellationToken);
+    Task<OperationResult<UserLoginDto>> RegisterAsync(RegisterDto registerDto, CancellationToken cancellationToken);
 }

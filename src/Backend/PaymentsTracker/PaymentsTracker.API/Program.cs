@@ -1,4 +1,5 @@
 using PaymentsTracker.API.Extensions;
+using PaymentsTracker.Common.Options;
 using PaymentsTracker.Models.Data;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,13 +11,11 @@ builder.Services.AddSqlite<AppDbContext>(connectionString,
 builder.Services.RegisterServices();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
-var authenticationKey = builder.Configuration.GetValue<string>("Jwt:Key") ?? "{831E9B31-2F60-45FE-94AC-75940729C7FC}";
-builder.Services.AddJwtAuthentication(authenticationKey);
 builder.Services.AddSwaggerWithBearerAuth();
-
-
+builder.Services.Configure<JwtOptions>(builder.Configuration.GetSection(JwtOptions.JwtSectionName));
+builder.Services.AddJwtAuthentication();
+await builder.Services.ApplyPendingMigrations();
 var app = builder.Build();
-
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {

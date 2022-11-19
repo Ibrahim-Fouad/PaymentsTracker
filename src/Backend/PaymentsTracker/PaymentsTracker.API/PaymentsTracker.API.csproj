@@ -28,6 +28,7 @@
     <ProjectReference Include="..\PaymentsTracker.Common\PaymentsTracker.Common.csproj" />
     <ProjectReference Include="..\PaymentsTracker.Models\PaymentsTracker.Models.csproj" />
     <ProjectReference Include="..\PaymentsTracker.Repositories\PaymentsTracker.Repositories.csproj" />
+    <ProjectReference Include="..\PaymentsTracker.Services\PaymentsTracker.Services.csproj" />
   </ItemGroup>
 
 </Project>

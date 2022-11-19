@@ -1,4 +1,6 @@
-﻿namespace PaymentsTracker.Common.DTOs;
+﻿using PaymentsTracker.Common.Extensions;
+
+namespace PaymentsTracker.Common.DTOs;
 
 public record OperationResult<T>
 {
@@ -33,4 +35,9 @@ public record ErrorDto
         Code = code;
         Message = message;
     }
+
+    public static ErrorDto Factory(int code, string message) =>
+        new(code, message);
+
+    public static ErrorDto Factory(Enum @enum) => new(Convert.ToInt32(@enum), @enum.GetDescription());
 }

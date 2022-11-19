@@ -14,6 +14,11 @@
     <Folder Include="DTOs\Auth\" />
     <Folder Include="Mapping\" />
     <Folder Include="Extensions\" />
+    <Folder Include="Options\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PaymentsTracker.Models\PaymentsTracker.Models.csproj" />
   </ItemGroup>
 
 </Project>

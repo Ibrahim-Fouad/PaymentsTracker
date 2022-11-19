@@ -26,12 +26,22 @@ public class Repository<T> : IRepository<T> where T : class
         _dbContext.Set<T>().AddRange(entities);
     }
 
+    public Task<bool> AnyAsync(CancellationToken cancellationToken = default)
+    {
+        return _dbContext.Set<T>().AnyAsync(cancellationToken);
+    }
+
+    public Task<bool> AnyAsync(Expression<Func<T, bool>> predicate, CancellationToken cancellationToken = default)
+    {
+        return _dbContext.Set<T>().AnyAsync(predicate, cancellationToken);
+    }
+
     public void Update(T entity)
     {
         _dbContext.Set<T>().Update(entity);
     }
 
-    public Task<int> Update(Expression<Func<SetPropertyCalls<T>, SetPropertyCalls<T>>> setPropertyCalls,
+    public Task<int> UpdateAsync(Expression<Func<SetPropertyCalls<T>, SetPropertyCalls<T>>> setPropertyCalls,
         Expression<Func<T, bool>>? predicate = null, CancellationToken cancellationToken = default)
     {
         var query = _dbContext.Set<T>().AsQueryable();
@@ -52,18 +62,18 @@ public class Repository<T> : IRepository<T> where T : class
         _dbContext.Set<T>().Remove(entity);
     }
 
-    public Task<int> Delete(Expression<Func<T, bool>> predicate, CancellationToken cancellationToken = default)
+    public Task<int> DeleteAsync(Expression<Func<T, bool>> predicate, CancellationToken cancellationToken = default)
     {
         return _dbContext.Set<T>().Where(predicate).ExecuteDeleteAsync(cancellationToken);
     }
 
-    public Task<T?> GetById(Expression<Func<T, bool>> predicate, bool asTracking = true,
+    public Task<T?> GetAsync(Expression<Func<T, bool>> predicate, bool asTracking = true,
         CancellationToken cancellationToken = default)
     {
         return GetEntityQuery(asTracking).Where(predicate).FirstOrDefaultAsync(cancellationToken);
     }
 
-    public Task<TResult?> GetByIdMapped<TResult>(Expression<Func<T, bool>> predicate,
+    public Task<TResult?> GetMappedAsync<TResult>(Expression<Func<T, bool>> predicate,
         CancellationToken cancellationToken = default)
     {
         return GetEntityQuery(false).AsNoTracking()

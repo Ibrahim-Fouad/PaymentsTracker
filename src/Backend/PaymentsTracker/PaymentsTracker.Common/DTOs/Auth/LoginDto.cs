@@ -2,4 +2,4 @@
 
 namespace PaymentsTracker.Common.DTOs.Auth;
 
-public record LoginDto([Required] string Email, [Required] string Password);
+public record LoginDto([Required][EmailAddress] string Email, [Required] string Password);
