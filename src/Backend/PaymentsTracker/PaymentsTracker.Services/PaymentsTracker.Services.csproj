@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
@@ -10,11 +10,6 @@
     <ProjectReference Include="..\PaymentsTracker.Common\PaymentsTracker.Common.csproj" />
     <ProjectReference Include="..\PaymentsTracker.Models\PaymentsTracker.Models.csproj" />
     <ProjectReference Include="..\PaymentsTracker.Repositories\PaymentsTracker.Repositories.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Interfaces\" />
-    <Folder Include="Business\" />
   </ItemGroup>
 
   <ItemGroup>

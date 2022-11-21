@@ -2,7 +2,7 @@
 using PaymentsTracker.Common.DTOs.Auth;
 using PaymentsTracker.Models.Models;
 
-namespace PaymentsTracker.Common.Mapping;
+namespace PaymentsTracker.Mappers;
 
 public class UserMapping : Profile
 {

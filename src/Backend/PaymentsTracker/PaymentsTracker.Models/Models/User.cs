@@ -12,6 +12,7 @@ public class User
     public string PasswordHash { get; set; } = null!;
     public string PasswordSalt { get; set; } = null!;
     public DateTimeOffset CreatedAtUtc { get; set; }
+    public ICollection<Customer> Customers { get; set; } = null!;
 }
 
 public class UserConfiguration : IEntityTypeConfiguration<User>
@@ -35,7 +36,5 @@ public class UserConfiguration : IEntityTypeConfiguration<User>
 
         builder.Property(p => p.PasswordSalt)
             .IsRequired();
-
-
     }
 }

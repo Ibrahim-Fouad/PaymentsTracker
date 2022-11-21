@@ -619,3 +619,8 @@ FodyWeavers.xsd
 
 ### VisualStudio Patch ###
 # Additional files built by Visual Studio
+
+# SQLite Databases
+*.db
+**/*.db
+/src/Backend/PaymentsTracker/PaymentsTracker.API/*.db
