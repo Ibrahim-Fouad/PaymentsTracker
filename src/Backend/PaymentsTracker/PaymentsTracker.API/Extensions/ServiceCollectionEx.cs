@@ -3,13 +3,15 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
-using PaymentsTracker.Common.Mapping;
+using PaymentsTracker.Common.Helpers;
 using PaymentsTracker.Common.Options;
+using PaymentsTracker.Mappers;
 using PaymentsTracker.Models.Data;
 using PaymentsTracker.Repositories.Business;
 using PaymentsTracker.Repositories.Interfaces;
 using PaymentsTracker.Services.Business;
 using PaymentsTracker.Services.Interfaces;
+
 
 namespace PaymentsTracker.API.Extensions;
 
@@ -17,6 +19,8 @@ public static class ServiceCollectionEx
 {
     public static IServiceCollection RegisterServices(this IServiceCollection services)
     {
+        services.AddHttpContextAccessor();
+        services.AddTransient<IUserClaimsService, UserClaimsService>();
         services.AddTransient<IUnitOfWork, UnitOfWork>();
         services.AddTransient(typeof(IRepository<>), typeof(Repository<>));
         services.AddTransient<IAuthService, AuthService>();
@@ -77,7 +81,7 @@ public static class ServiceCollectionEx
 
     public static async Task ApplyPendingMigrations(this IServiceCollection services)
     {
-        if (Environment.CurrentDirectory.Contains("dotnet-ef", StringComparison.CurrentCultureIgnoreCase))
+        if (Environment.CommandLine.Contains("dotnet-ef", StringComparison.CurrentCultureIgnoreCase))
             return;
         using var serviceScope = services.BuildServiceProvider().CreateScope();
         var scope = serviceScope.ServiceProvider;

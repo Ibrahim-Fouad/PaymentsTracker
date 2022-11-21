@@ -17,6 +17,7 @@ public class AuthController : BaseController
     }
 
     [HttpPost]
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(UserLoginDto))]
     public async Task<IActionResult> LoginAsync(LoginDto loginDto, CancellationToken token)
     {
         return await _authService.LoginAsync(loginDto, token).ToActionResult();

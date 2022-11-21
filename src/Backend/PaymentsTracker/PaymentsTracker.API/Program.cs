@@ -1,5 +1,7 @@
 using PaymentsTracker.API.Extensions;
+using PaymentsTracker.Common.Helpers;
 using PaymentsTracker.Common.Options;
+using PaymentsTracker.Mappers;
 using PaymentsTracker.Models.Data;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -15,6 +17,7 @@ builder.Services.AddSwaggerWithBearerAuth();
 builder.Services.Configure<JwtOptions>(builder.Configuration.GetSection(JwtOptions.JwtSectionName));
 builder.Services.AddJwtAuthentication();
 await builder.Services.ApplyPendingMigrations();
+
 var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

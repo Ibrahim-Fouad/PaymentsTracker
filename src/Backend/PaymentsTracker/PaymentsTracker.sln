@@ -7,11 +7,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PaymentsTracker.API", "Paym
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PaymentsTracker.Models", "PaymentsTracker.Models\PaymentsTracker.Models.csproj", "{43750699-110F-4B44-A20A-6BFA88EA6254}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaymentsTracker.Common", "PaymentsTracker.Common\PaymentsTracker.Common.csproj", "{5E9F0490-81C4-4E6B-8929-D9B05997A329}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PaymentsTracker.Common", "PaymentsTracker.Common\PaymentsTracker.Common.csproj", "{5E9F0490-81C4-4E6B-8929-D9B05997A329}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaymentsTracker.Repositories", "PaymentsTracker.Repositories\PaymentsTracker.Repositories.csproj", "{0A79CAC4-A2E9-4AEC-B051-20F60D90E5B3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PaymentsTracker.Repositories", "PaymentsTracker.Repositories\PaymentsTracker.Repositories.csproj", "{0A79CAC4-A2E9-4AEC-B051-20F60D90E5B3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaymentsTracker.Services", "PaymentsTracker.Services\PaymentsTracker.Services.csproj", "{20F7C188-0C01-426C-B08E-00B47F699139}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PaymentsTracker.Services", "PaymentsTracker.Services\PaymentsTracker.Services.csproj", "{20F7C188-0C01-426C-B08E-00B47F699139}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaymentsTracker.Mappers", "PaymentsTracker.Mappers\PaymentsTracker.Mappers.csproj", "{EC1CB9CC-394D-43D3-8859-D9BDFB205464}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{20F7C188-0C01-426C-B08E-00B47F699139}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{20F7C188-0C01-426C-B08E-00B47F699139}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{20F7C188-0C01-426C-B08E-00B47F699139}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC1CB9CC-394D-43D3-8859-D9BDFB205464}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC1CB9CC-394D-43D3-8859-D9BDFB205464}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC1CB9CC-394D-43D3-8859-D9BDFB205464}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC1CB9CC-394D-43D3-8859-D9BDFB205464}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

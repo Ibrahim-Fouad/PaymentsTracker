@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using PaymentsTracker.Common.Helpers;
 using PaymentsTracker.Models.Conversions;
 using PaymentsTracker.Models.Models;
 
@@ -7,10 +8,13 @@ namespace PaymentsTracker.Models.Data;
 
 public class AppDbContext : DbContext
 {
+    private readonly IUserClaimsService _userClaimsService;
     public DbSet<User> Users { get; set; } = null!;
+    public DbSet<Customer> Customers { get; set; } = null!;
 
-    public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
+    public AppDbContext(DbContextOptions<AppDbContext> options, IUserClaimsService userClaimsService) : base(options)
     {
+        _userClaimsService = userClaimsService;
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -31,5 +35,16 @@ public class AppDbContext : DbContext
                     property.SetAfterSaveBehavior(PropertySaveBehavior.Ignore);
             }
         }
+
+        if (_userClaimsService.UserId.HasValue)
+        {
+            ApplyGlobalQueryFilter(modelBuilder, _userClaimsService.UserId.Value);
+        }
+    }
+
+    private static void ApplyGlobalQueryFilter(ModelBuilder modelBuilder, int userId)
+    {
+        modelBuilder.Entity<Customer>()
+            .HasQueryFilter(c => c.UserId == userId);
     }
 }

@@ -1,6 +1,5 @@
-﻿using AutoMapper;
-using AutoMapper.QueryableExtensions;
-using PaymentsTracker.Common.Mapping;
+﻿using AutoMapper.QueryableExtensions;
+using PaymentsTracker.Common.Helpers;
 
 namespace PaymentsTracker.Common.Extensions;
 
