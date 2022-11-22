@@ -20,8 +20,9 @@ public static class ServiceCollectionEx
     public static IServiceCollection RegisterServices(this IServiceCollection services)
     {
         services.AddHttpContextAccessor();
-        services.AddTransient<IUserClaimsService, UserClaimsService>();
+        services.AddTransient<IUserIdService, UserIdService>();
         services.AddTransient<IUnitOfWork, UnitOfWork>();
+        services.AddTransient<ICustomersService, CustomersService>();
         services.AddTransient(typeof(IRepository<>), typeof(Repository<>));
         services.AddTransient<IAuthService, AuthService>();
         services.AddAutoMapper(typeof(UserMapping).Assembly);

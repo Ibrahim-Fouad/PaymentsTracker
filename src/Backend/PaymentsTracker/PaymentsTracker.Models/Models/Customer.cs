@@ -12,13 +12,14 @@ public class Customer
     public string? Description { get; set; }
     public int UserId { get; set; }
     public User User { get; set; } = null!;
-    public DateTimeOffset CreatedAtUtc { get; set; }
+    public DateTimeOffset CreatedAtUtc { get; set; } = DateTimeOffset.UtcNow;
 }
 
 public class CustomerConfigurations : IEntityTypeConfiguration<Customer>
 {
     public void Configure(EntityTypeBuilder<Customer> builder)
     {
+        builder.ToTable($"{nameof(Customer)}s");
         builder.Property(c => c.Name)
             .IsRequired()
             .HasMaxLength(50);

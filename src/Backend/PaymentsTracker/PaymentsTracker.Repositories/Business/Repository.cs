@@ -78,7 +78,7 @@ public class Repository<T> : IRepository<T> where T : class
     {
         return GetEntityQuery(false).AsNoTracking()
             .Where(predicate)
-            .MapTo<T, TResult>()
+            .MapTo<TResult>()
             .FirstOrDefaultAsync(cancellationToken);
     }
 

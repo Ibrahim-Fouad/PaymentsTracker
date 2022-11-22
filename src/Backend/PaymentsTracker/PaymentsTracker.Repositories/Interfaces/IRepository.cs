@@ -1,5 +1,6 @@
 ﻿using System.Linq.Expressions;
 using Microsoft.EntityFrameworkCore.Query;
+using PaymentsTracker.Common.DTOs;
 
 namespace PaymentsTracker.Repositories.Interfaces;
 
@@ -23,4 +24,5 @@ public interface IRepository<T> where T : class
 
     Task<TResult?> GetMappedAsync<TResult>(Expression<Func<T, bool>> predicate,
         CancellationToken cancellationToken = default);
+
 }

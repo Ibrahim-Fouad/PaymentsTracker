@@ -14,6 +14,7 @@ public class UnitOfWork : IUnitOfWork
     }
 
     public IRepository<User> Users => new Repository<User>(_dbContext);
+    public ICustomerRepository Customers => new CustomerRepository(_dbContext);
 
     public Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
     {

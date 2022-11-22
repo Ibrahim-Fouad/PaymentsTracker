@@ -3,16 +3,16 @@ using Microsoft.AspNetCore.Http;
 
 namespace PaymentsTracker.Common.Helpers;
 
-public interface IUserClaimsService
+public interface IUserIdService
 {
     public int? UserId { get; }
 }
 
-public class UserClaimsService : IUserClaimsService
+public class UserIdService : IUserIdService
 {
     private readonly IHttpContextAccessor _httpContextAccessor;
 
-    public UserClaimsService(IHttpContextAccessor httpContextAccessor)
+    public UserIdService(IHttpContextAccessor httpContextAccessor)
     {
         _httpContextAccessor = httpContextAccessor;
     }

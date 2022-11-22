@@ -32,4 +32,10 @@
     <ProjectReference Include="..\PaymentsTracker.Services\PaymentsTracker.Services.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="PaymentsTracker.db">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

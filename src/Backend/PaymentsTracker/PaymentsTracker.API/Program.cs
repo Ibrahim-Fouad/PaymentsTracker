@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using PaymentsTracker.API.Extensions;
 using PaymentsTracker.Common.Helpers;
 using PaymentsTracker.Common.Options;
@@ -7,8 +8,8 @@ using PaymentsTracker.Models.Data;
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("SqLite") ?? "Data Source=PaymentsTracker.db";
 // Add db context
-builder.Services.AddSqlite<AppDbContext>(connectionString,
-    options => options.MigrationsAssembly(typeof(AppDbContext).Assembly.GetName().Name));
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.EnableSensitiveDataLogging().UseSqlite(connectionString));
 // Add services to the container.
 builder.Services.RegisterServices();
 builder.Services.AddControllers();
