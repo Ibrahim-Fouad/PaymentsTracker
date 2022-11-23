@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <Folder Include="DTOs\Auth\" />
+    <Folder Include="DTOs\Customers\" />
     <Folder Include="Options\" />
   </ItemGroup>
 

@@ -30,7 +30,7 @@ public class AuthService : IAuthService
 
     public async Task<OperationResult<UserLoginDto>> LoginAsync(LoginDto loginDto, CancellationToken cancellationToken)
     {
-        var user = await _unitOfWork.Users.GetAsync(u => u.Email == loginDto.Email,
+        var user = await _unitOfWork.Users.GetAsNoTrackingAsync(u => u.Email == loginDto.Email,
             cancellationToken: cancellationToken);
         if (user is null)
             return ErrorDto.Factory(ErrorCode.InvalidEmailOrPassword);

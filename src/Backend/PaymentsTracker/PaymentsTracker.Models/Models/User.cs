@@ -19,6 +19,7 @@ public class UserConfiguration : IEntityTypeConfiguration<User>
 {
     public void Configure(EntityTypeBuilder<User> builder)
     {
+        builder.ToTable($"{nameof(User)}s");
         builder.Property(p => p.FullName)
             .IsRequired()
             .HasMaxLength(50);
