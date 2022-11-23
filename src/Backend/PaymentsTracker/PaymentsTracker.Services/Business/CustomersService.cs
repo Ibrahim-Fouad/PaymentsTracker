@@ -48,6 +48,17 @@ public class CustomersService : ICustomersService
         CancellationToken cancellationToken = default)
         => _unitOfWork.Customers.ListAsync(criteriaDto, cancellationToken);
 
+    public async Task<OperationResult<bool>> DeleteAsync(int customerId, CancellationToken cancellationToken = default)
+    {
+        var customer = await _unitOfWork.Customers.GetAsync(c => c.CustomerId == customerId, cancellationToken);
+        if (customer is null)
+            return ErrorDto.Factory(ErrorCode.CustomerNotFound);
+
+        // TODO: Perform checks if customer has relationships
+        _unitOfWork.Customers.Delete(customer);
+        return await _unitOfWork.SaveChangesAsync(cancellationToken) > 0;
+    }
+
     #region Helper Methods
 
     private async Task<OperationResult<CustomerDto>> AddUser(CustomerWriterDto customerWriterDto,
@@ -75,8 +86,6 @@ public class CustomersService : ICustomersService
         await _unitOfWork.SaveChangesAsync(cancellationToken);
         return customerWriterDto;
     }
-
-
 
     #endregion
 }

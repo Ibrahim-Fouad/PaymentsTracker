@@ -27,4 +27,8 @@ public class CustomersController : BaseController
     public async Task<IActionResult> ListAsync(ListCriteriaDto<CustomerFilterDto?> filters,
         CancellationToken cancellationToken)
         => Ok(await _customersService.ListCustomersAsync(filters, cancellationToken));
+
+    [HttpDelete("{customerId:int}")]
+    public async Task<IActionResult> DeleteAsync(int customerId, CancellationToken cancellationToken)
+        => await _customersService.DeleteAsync(customerId, cancellationToken).ToActionResult();
 }

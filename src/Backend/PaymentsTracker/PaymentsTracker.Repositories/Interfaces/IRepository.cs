@@ -19,10 +19,9 @@ public interface IRepository<T> where T : class
     void Delete(T entity);
     Task<int> DeleteAsync(Expression<Func<T, bool>> predicate, CancellationToken cancellationToken = default);
 
-    Task<T?> GetAsync(Expression<Func<T, bool>> predicate, bool asTracking = true,
-        CancellationToken cancellationToken = default);
+    Task<T?> GetAsync(Expression<Func<T, bool>> predicate, CancellationToken cancellationToken = default);
+    Task<T?> GetAsNoTrackingAsync(Expression<Func<T, bool>> predicate, CancellationToken cancellationToken = default);
 
     Task<TResult?> GetMappedAsync<TResult>(Expression<Func<T, bool>> predicate,
         CancellationToken cancellationToken = default);
-
 }

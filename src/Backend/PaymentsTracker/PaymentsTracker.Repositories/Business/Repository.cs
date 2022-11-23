@@ -67,10 +67,16 @@ public class Repository<T> : IRepository<T> where T : class
         return _dbContext.Set<T>().Where(predicate).ExecuteDeleteAsync(cancellationToken);
     }
 
-    public Task<T?> GetAsync(Expression<Func<T, bool>> predicate, bool asTracking = true,
+    public Task<T?> GetAsync(Expression<Func<T, bool>> predicate,
         CancellationToken cancellationToken = default)
     {
-        return GetEntityQuery(asTracking).Where(predicate).FirstOrDefaultAsync(cancellationToken);
+        return GetEntityQuery().Where(predicate).FirstOrDefaultAsync(cancellationToken);
+    }
+
+    public Task<T?> GetAsNoTrackingAsync(Expression<Func<T, bool>> predicate,
+        CancellationToken cancellationToken = default)
+    {
+        return GetEntityQuery(false).Where(predicate).FirstOrDefaultAsync(cancellationToken);
     }
 
     public Task<TResult?> GetMappedAsync<TResult>(Expression<Func<T, bool>> predicate,

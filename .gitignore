@@ -624,3 +624,5 @@ FodyWeavers.xsd
 *.db
 **/*.db
 /src/Backend/PaymentsTracker/PaymentsTracker.API/*.db
+/src/Backend/PaymentsTracker/PaymentsTracker.API/PaymentsTracker.db-shm
+/src/Backend/PaymentsTracker/PaymentsTracker.API/PaymentsTracker.db-wal
